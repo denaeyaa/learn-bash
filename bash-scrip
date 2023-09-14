@@ -1,22 +1,17 @@
-#buat cek tree udah keinstall apa belom
-if ! command -v tree &> /dev/null;then
-        echo "tree ga ditemukan"
+read -p "apa yang mau diinstall bruh?" well
 
-#minta respon
-read -p "apakah kamu mau install tree? (y/yes):"
+if command -v "$well" &> /dev/null; then
+        echo "udah ke install loh"
+                else
 
-#confirm pilihan
-if [ "$confirm" == "y" ] || [ "$confirm" == "yes" ];
-        then
+read -p "belom ada. apa mau lanjut install? [yes/no]" permision
 
-#install tree nya
-        sudo apt-get update
-        sudo apt install tree
-
-echo "tree berhasil diinstall"
-        else
-echo "instalasi dibatalkan"
-        fi
-else
-        echo "tree udah terinstall"
+        case $permision in (y|Y|yes)
+        apt-get install $well -y
+;;
+        *)
+        echo "dibatalin"
+;; esac
 fi
+
+
