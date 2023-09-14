@@ -1,0 +1,22 @@
+#buat cek tree udah keinstall apa belom
+if ! command -v tree &> /dev/null;then
+        echo "tree ga ditemukan"
+
+#minta respon
+read -p "apakah kamu mau install tree? (y/yes):"
+
+#confirm pilihan
+if [ "$confirm" == "y" ] || [ "$confirm" == "yes" ];
+        then
+
+#install tree nya
+        sudo apt-get update
+        sudo apt install tree
+
+echo "tree berhasil diinstall"
+        else
+echo "instalasi dibatalkan"
+        fi
+else
+        echo "tree udah terinstall"
+fi
