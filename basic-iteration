@@ -1,0 +1,16 @@
+#!/bin/bash
+
+for folder_count in {1..50}; do
+  nama_direktorinya="direktori$folder_count"
+
+  mkdir -p "$nama_direktorinya"
+  echo "kerennn $nama_direktorinya udah dibikin"
+
+  for file_count in {1..50}; do
+    nama_filenya="$nama_direktorinya/file$file_count.txt"
+
+    echo -e "halo, saya adalah file ke $file_count\nsaya dibuat pada: $(date)" > "$nama_filenya"
+    echo "kerennn $nama_filenya udah dibikin"
+
+  done
+done
