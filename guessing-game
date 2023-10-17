@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# angka acak 1 - 10
+randomnumber=$((RANDOM % 10 + 1))
+
+echo "haloo, ini game tebak angka kuu!"
+echo "coba tebak angka dari 1 sampe 10."
+
+while true; do
+    read -p "tebak angka: " playerguess
+
+    if [[ $playerguess -lt 1 || $playerguess -gt 10 ]]; then
+        echo "angkanya harus 1 sampe 10."
+    elif [[ $playerguess -eq $randomnumber ]]; then
+        echo "selamat, tebakanmu bener!"
+        break
+    else
+        echo "tebakanmu salah. coba lagi."
+    fi
+done
+
+echo "makasi udah main!"
